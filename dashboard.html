@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang ="en">
+<head>
+    <meta charset="utf-8">
+    <title>Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js" integrity="sha256-xKeoJ50pzbUGkpQxDYHD7o7hxe0LaOGeguUidbq6vis=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Oxygen&display=swap" rel="stylesheet">
+   
+    <link rel="stylesheet" href="css/stylesheet.css">
+</head>
+
+<body>
+    <div class ="container">
+        <header class="main-header">
+                <div class ="bar">
+                    <h2 class ="title">Accounting &trade;</h2>
+                    <div  class ="bell"><img src="icons/icon-bell.svg" class="icon-badge" alt="notification-bell"></div>        
+                                         
+                    <div class="blocker">|</div>
+                    <div class="profile"><img class ="profile-image" src="images/profile.png" alt="profile-image">
+                    </div>
+                    <div id="new-notifications"></div>
+                    <div class ="profile-name">Jack Morris</div>
+                    
+            </div>
+        </header>
+
+        <div class ="search-bar">
+            <h2 class ="dashboard">Dashboard</h2>
+            <input type ="text" id="search" name ="search" placeholder="Search...">
+            <div class ="alert">
+                    <span class = "closebtn" onclick= "this.parentElement.style.display='none';">&times;
+                    </span>
+                    <strong>ALERT</strong>  <p>You have a new message!</p>
+            </div>
+           
+        </div>
+
+        <aside class ="sidebar-left">
+            <ul class ="list-unstyled list-inline text-center">
+                <li><img class ="side-icons" src="icons/icon-dashboard.svg" alt="dashboard-icon">
+                    <p class ="dash">Dashboard</p>
+                </li>
+                
+                <li><img class="side-icons" src="icons/icon-members.svg" alt="members-icon">
+                <p class ="dash">Members</p>
+                </li>
+
+                <li><img class="side-icons" src="icons/icon-settings.svg" alt="setting-icon">
+                <p class ="dash">Settings</p></li>
+
+                <li><img class="side-icons" src="icons/icon-visits.svg" alt="members-icon">
+                <p class ="dash">Visits</p></li>
+                </ul>
+        </aside>
+
+        
+
+        <main class ="main-content">
+            <div class ="firstChart">
+                <!-- First Chart -->
+              <div class ="chart-btns">
+                    <button id="hourly" class="chartSel" type="button">Hourly</button>
+                    <button id="daily" class="chartSel" type="button">Daily</button>
+                    <button id="weekly" class="chartSel active" type="button">Weekly</button>
+                    <button id="monthly" class="chartSel" type="button">Monthly</button>
+              </div>
+              <div class ="traffic">Traffic
+                <canvas id ="areaChart"></canvas>
+                </div>
+            </div>
+            <div class="secondaryCharts ">
+                <div class ="dailyTraffic">Daily Traffic
+                    <!-- Bar Chart -->
+                    <canvas id="barChart"></canvas>
+                </div>
+               
+                <div class ="mobileUsers">Mobile Users
+                    <!-- Doughnut Chart -->
+                    <canvas id="doughnutChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Social Stats -->
+            <div class ="socialStats">Social Stats
+                <div id="twitter">
+                    <img src="icons/icon-twitter.svg" class ="twitter" alt="twitter-logo">
+                    <h6 class ="socialMedia">Twitter</h6><span id="number">10,345</span>
+                </div>
+
+                <div id ="facebook">
+                    <img src="icons/icon-facebook.svg" class ="facebook" alt="facebook-logo">
+                    <h6 class ="socialMedia">Facebook</h6><span id="number1">8,739</span>
+                </div>
+
+                <div id="googlePlus">
+                    <img src="icons/icon-google-plus.svg" class="googlePlus" alt="googlePlus-logo">
+                    <h6 class="socialMedia">Google+</h6><span id="number2">2,530</span>
+                </div>
+
+            </div>
+
+            <!-- Member Section -->
+
+            <div class="members">
+                <div class ="memAct">
+                    <div class="newMembers">New Members
+                        <div class ="new">
+                            <img src ="images/member-1.jpg" class ="profile1" alt="vicotria-profile-image">
+                            <h6 class ="member-name">Victoria Chambers</h6>
+                            <span class="email"><a href="#">victoria.chambers80@example.com</a></span>
+                        <time datetime="2019-11-12">12/11/19</time>
+                        </div>
+
+                        <div class ="new">
+                            <img src ="images/member-2.jpg" class ="profile1" alt="dale-profile-image">
+                            <h6 class ="member-name">Dale Bird</h6>
+                            <span class="email"><a href="#">dalebird85@example.com</a></span>
+                            <time datetime="2019-11-12">12/11/19</time>
+                        </div>
+
+                        <div class ="new">
+                            <img src ="images/member-3.jpg" class ="profile1" alt="dawn-profile-image">
+                            <h6 class ="member-name">Dawn Wood</h6>
+                            <span class="email"><a href="#">dawnwood92@example.com</a></span>
+                            <time datetime="2019-11-12">12/11/19</time>
+                        </div>
+
+                        <div class ="new" id="oliver">
+                            <img src ="images/member-4.jpg" class ="profile1" alt="dan-profile-image">
+                            <h6 class ="member-name">Dan Oliver</h6>
+                            <span class="email"><a href="#">danoliver90@example.com</a></span>
+                            <time datetime="2019-11-12">12/11/19</time>
+                        </div>
+                    </div>
+                    <!-- Recent Activity -->
+                        <div class="recentActivity">Recent Activity
+                            <div class ="new">
+                                <img src ="images/member-1.jpg" class ="profile1" alt="vicotria-profile-image">
+                                <h6 class ="member-name">Victoria Chambers commented on your status</h6>
+                                <span class="activity">4 Hours ago</span>
+                            
+                            </div>
+        
+                            <div class ="new">
+                                <img src ="images/member-2.jpg" class ="profile1" alt="dale-profile-image">
+                                <h6 class ="member-name">Dale Bird like the post Facebook's change for 2020</h6>
+                                <span class="activity">5 Hours ago</span>
+                                
+                            </div>
+        
+                            <div class ="new">
+                                <img src ="images/member-3.jpg" class ="profile1" alt="dawn-profile-image">
+                                <h6 class ="member-name">Dawn Wood commented on Facebook's change for 2020</h6>
+                                <span class="activity">5 Hours ago</span>
+                            
+                            </div>
+        
+                            <div class ="new" id="dan">
+                                <img src ="images/member-4.jpg"  class ="profile1" alt="dan-profile-image">
+                                <h6 class ="member-name">Dan Oliver posted to your profile</h6>
+                                <span class="activity">1 Day ago</span>
+                                
+                            </div>
+                    </div>
+                
+            </div>
+                <div class ="mesSet">
+                <!-- Message User -->
+                <div class ="message">Message User
+                    <div class="inputs">
+                        <input type ="text" id="user" name ="user" placeholder="Search for user">
+                        <textarea id="message" name="message"> </textarea>
+                        <button id ="send">Send</button>
+                    </div>
+                </div>
+            
+                <!-- Settings -->
+                <div class="settings">Settings
+
+                    <div class ="sets">
+                        <p class="scroll">Send Email Nofications
+                                
+                                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+                                        <label class="onoffswitch-label" for="myonoffswitch">
+                                            <span class="onoffswitch-inner"></span>
+                                            <span class="onoffswitch-switch"></span>
+                                        </label>
+                        </p><br>
+
+                        <p class="scroll">Set Profile to Public
+                               
+                                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch1" checked>
+                                        <label class="onoffswitch-label" for="myonoffswitch">
+                                            <span class="onoffswitch-inner"></span>
+                                            <span class="onoffswitch-switch"></span>
+                                        </label>
+                        </p><br>
+                        
+                        <select class="select-box">
+                            <option>UTC +14 LINT</option>
+                            <option>UTC +13 NZDT</option>
+                            <option>UTC +12 ANAT</option>
+                            <option>UTC +11 AEDT</option>
+                            <option>UTC +10 AEST</option>
+                            <option>UTC +9 JST</option>
+                            <option>UTC +8 CST</option>
+                            <option>UTC +7 WIB</option>
+                            <option>UTC +6 BST</option>
+                            <option>UTC +5 UZT</option>
+                            <option>UTC +4 GST</option>
+                            <option>UTC +3 MSK</option>
+                            <option>UTC +2 EET</option>
+                            <option>UTC +1 CET</option>
+                            <option>UTC +0 UTC</option>
+                            <option>UTC -1 CTV</option>
+                            <option>UTC -2 GST</option>
+                            <option>UTC -3 ART</option>
+                            <option>UTC -4 VET</option>
+                            <option>UTC -5 EST</option>
+                            <option>UTC -6 CST</option>
+                            <option>UTC -7 MST</option>
+                            <option>UTC -8 PST</option>
+                            <option>UTC -9 AKST</option>
+                            <option>UTC -10 HST</option>
+                            <option>UTC -11 NUT</option>
+                            <option>UTC -12 AoE</option>
+                        </select>
+                        <button id ="save">Save</button>
+                        <button id ="cancel">Cancel</button>
+                    </div>
+                </div>
+                   
+              </div>
+
+                
+            </div>
+
+        </main>
+    </div>
+    <script src="js/chart.js"></script>
+    <script src="js/countUp.js"></script>
+
+
+</body>
+
+
+
+
+
+
+
+</html>
+
